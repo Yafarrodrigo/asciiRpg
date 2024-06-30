@@ -15,7 +15,7 @@ export default class Map{
         this.settlements = []
         this.paths = []
 
-        this.mapGen.mapGenWorker = new Worker("/Workers/MapGenWorker.js", {type: "module"})
+        this.mapGen.mapGenWorker = new Worker("./Workers/MapGenWorker.js", {type: "module"})
         this.mapGen.mapGenWorker.postMessage({txt:"start", seed})
         this.mapGen.mapGenWorker.onmessage = ({data}) => {
             if(data.txt === "finished terrain"){
